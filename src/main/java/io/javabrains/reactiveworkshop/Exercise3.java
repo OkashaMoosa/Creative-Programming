@@ -20,6 +20,11 @@ public class Exercise3 {
                 .doOnComplete(() -> System.out.println(numbers + "\n" + numbers.size()))
                 .subscribe();
 
+        //Alternative Approach
+        List<Integer> numbers2 = ReactiveSources.intNumbersFlux().toStream().toList();
+        System.out.println(numbers2);
+        System.out.println(numbers2.size());
+
 
         System.out.println("Press a key to end");
         System.in.read();
