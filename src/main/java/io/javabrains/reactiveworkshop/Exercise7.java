@@ -37,6 +37,9 @@ public class Exercise7 {
                 .subscribe(x -> System.out.println(x));
         // Switch ints from intNumbersFlux to the right user from userFlux
         // TODO: Write code here
+        ReactiveSources.intNumbersFlux()
+                .flatMap(x -> ReactiveSources.userFlux().filter(user -> user.getId() == x))
+                .subscribe();
 
         // Print only distinct numbers from intNumbersFluxWithRepeat
         // TODO: Write code here
@@ -46,6 +49,9 @@ public class Exercise7 {
 
         // Print from intNumbersFluxWithRepeat excluding immediately repeating numbers
         // TODO: Write code here
+        ReactiveSources.intNumbersFluxWithRepeat()
+                .distinctUntilChanged()
+                .subscribe(x -> System.out.println(x));
 
         System.out.println("Press a key to end");
         System.in.read();
